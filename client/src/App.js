@@ -31,7 +31,14 @@ const App = () => {
       </h1>
       <div className="max-w-2xl mx-auto ">
         <SearchBar onSearch={handleSearch} />
-        {weatherData && <WeatherCard weather={weatherData} />}
+        {weatherData ? (
+          <WeatherCard weather={weatherData} />
+        ) : (
+          <h2 className="text-blue-800 font-semibold text-center mt-20 text-2xl ">
+            Get real-time weather updates by searching for a city in the search
+            bar.
+          </h2>
+        )}
       </div>
     </div>
   );

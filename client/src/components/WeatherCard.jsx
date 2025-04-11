@@ -23,10 +23,18 @@ const WeatherCard = ({ weather }) => {
         </p>
       </div>
       <div className="mt-2">
-        <p className="text-xl "> Temperature:<span className="font-semibold">{temperature}</span> °C </p>
+        <p className="text-xl ">
+          {" "}
+          Temperature:<span className="font-semibold">
+            {temperature}
+          </span> °C{" "}
+        </p>
       </div>
       <div className="mt-2">
-        <p className="text-xl "> humidity:<span className="font-semibold">{humidity}</span> </p>
+        <p className="text-xl ">
+          {" "}
+          humidity:<span className="font-semibold">{humidity}</span>{" "}
+        </p>
       </div>
     </div>
   );
