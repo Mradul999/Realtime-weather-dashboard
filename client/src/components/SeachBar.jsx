@@ -4,6 +4,7 @@ const SeachBar = () => {
   return (
     <div>
       
+      
     </div>
   )
 }

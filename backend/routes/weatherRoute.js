@@ -15,7 +15,7 @@ export const getWeather = async (req, res) => {
     );
     const data = weatherResponse.data;
 
-    console.log(data);
+    // console.log(data);
     res.status(200).json({
       city: data.name,
       wind: data.wind.speed,
@@ -27,7 +27,7 @@ export const getWeather = async (req, res) => {
     if (error.response && error.response.status == 404) {
       return res.status(404).json({ message: "Invalid city name" });
     }
-    console.log(error);
+    // console.log(error);
 
     res.status(500).json({ message: "Error fetching weather data " });
   }
