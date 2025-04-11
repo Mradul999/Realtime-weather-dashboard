@@ -4,7 +4,8 @@ dotenv.config();
 
 export const getWeather = async (req, res) => {
   try {
-    const { city } = req.query;
+    const city = req.query.city;
+    console.log(city);
 
     if (!city) {
       return res.status(400).json({ message: "City is required" });
@@ -22,6 +23,7 @@ export const getWeather = async (req, res) => {
       temperature: data.main.temp,
       condition: data.weather[0].description,
       icon: data.weather[0].icon,
+      humidity: data.main.humidity,
     });
   } catch (error) {
     if (error.response && error.response.status == 404) {
