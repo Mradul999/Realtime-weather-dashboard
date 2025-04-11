@@ -5,7 +5,7 @@ import axios from "axios";
 
 const App = () => {
   const [weatherData, setWeatherData] = useState(null);
-  console.log("weatherData=>", weatherData);
+  // console.log("weatherData=>", weatherData);
   const handleSearch = async (city) => {
     try {
       const response = await axios.get(
