@@ -3,8 +3,6 @@ import SearchBar from "./components/SearchBar.jsx";
 import WeatherCard from "./components/WeatherCard.jsx";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import dotenv from "dotenv";
-dotenv.config();
 
 const App = () => {
   const [weatherData, setWeatherData] = useState(null);
