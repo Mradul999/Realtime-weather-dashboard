@@ -42,3 +42,6 @@ npm install
 ## run the frontend
 
 npm start
+
+## live project link
+https://mradul-verma-realtime-weather-dashboard.vercel.app/
