@@ -12,7 +12,7 @@ const App = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-      `http://localhost:4000/weather?city=${city}`
+        `https://realtime-weather-dashboard.onrender.com/weather?city=${city}`
       );
       setLoading(false);
 
