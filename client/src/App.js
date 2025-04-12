@@ -2,24 +2,31 @@ import React, { useState } from "react";
 import SearchBar from "./components/SearchBar.jsx";
 import WeatherCard from "./components/WeatherCard.jsx";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 const App = () => {
   const [weatherData, setWeatherData] = useState(null);
+  const [loading, setLoading] = useState(false);
   // console.log("weatherData=>", weatherData);
   const handleSearch = async (city) => {
     try {
+      setLoading(true);
       const response = await axios.get(
-        `http://localhost:4000/weather?city=${city}`
+      `http://localhost:4000/weather?city=${city}`
       );
+      setLoading(false);
 
       setWeatherData(response.data);
     } catch (error) {
+      setLoading(false);
+      setWeatherData(null);
       console.log(error);
+
       if (error.response) {
         if (error.response.status === 404) {
-          alert("Invalid City Name");
+          toast.error("Invalid City Name");
         } else {
-          alert("Some error occurred please try again later");
+          toast.error("Some error occurred please try again later");
         }
       }
     }
@@ -31,7 +38,13 @@ const App = () => {
       </h1>
       <div className="max-w-2xl mx-auto ">
         <SearchBar onSearch={handleSearch} />
-        {weatherData ? (
+        {loading ? (
+          <div className="flex justify-center mt-10 ">
+            <div class="spinner-border   " role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        ) : weatherData ? (
           <WeatherCard weather={weatherData} />
         ) : (
           <h2 className="text-blue-800 font-semibold text-center mt-20 text-2xl ">
@@ -40,8 +53,8 @@ const App = () => {
           </h2>
         )}
       </div>
+      <ToastContainer />
     </div>
   );
 };
-
 export default App;

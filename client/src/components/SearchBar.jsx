@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 const SearchBar = ({ onSearch }) => {
   const [city, setCity] = useState("");
@@ -10,7 +11,7 @@ const SearchBar = ({ onSearch }) => {
   const submitHandler = async (e) => {
     e.preventDefault();
     if (city.trim() === "") {
-      alert("Please enter city name");
+      toast.error("Please enter city name");
       return;
     }
     onSearch(city);
@@ -32,6 +33,7 @@ const SearchBar = ({ onSearch }) => {
       <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md shadow">
         Search
       </button>
+      <ToastContainer />
     </form>
   );
 };
