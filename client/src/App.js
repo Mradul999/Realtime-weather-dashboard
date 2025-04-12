@@ -3,6 +3,8 @@ import SearchBar from "./components/SearchBar.jsx";
 import WeatherCard from "./components/WeatherCard.jsx";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import dotenv from "dotenv";
+dotenv.config();
 
 const App = () => {
   const [weatherData, setWeatherData] = useState(null);
@@ -12,7 +14,7 @@ const App = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `https://realtime-weather-dashboard.onrender.com/weather?city=${city}`
+        `${process.env.REACT_APP_API_URL}/weather?city=${city}`
       );
       setLoading(false);
 
